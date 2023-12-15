@@ -13,16 +13,17 @@
         }
         $retval = mysqli_select_db( $conn, 'Gabayno' );
         // Select data
-        $sql = "SELECT UsersID, Username, Email FROM users";
+        $sql = "SELECT StudentID, Firstname, Lastname, DateOfBirth, Email, Phone FROM Student";
         $result = $conn->query($sql);
-
     //Add User
     $id = rand(100000,999999);
-    $name = $_GET['name'];
+    $firstname = $_GET['firstname'];
+    $lastname = $_GET['lastname'];
+    $birthdate = $_GET['birthdate'];
     $email = $_GET['email'];
-    $password = $_GET['password'];
+    $phone = $_GET['phone'];
 
-    $sql = "INSERT INTO users (UsersID, Username, Email, Password) VALUES ('$id', '$name', '$email', '$password')";
+    $sql = "INSERT INTO Student (StudentID, Firstname, Lastname, DateOfBirth, Email, Phone) VALUES ('$id', '$firstname', $lastname, $birthdate, '$email', '$phone')";
     if ($conn->query($sql) === TRUE) {
         echo "Record created successfully";
     } else {

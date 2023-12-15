@@ -13,26 +13,16 @@
         }
         $retval = mysqli_select_db( $conn, 'Gabayno' );
         // Select data
-        $sql = "SELECT StudentID, Firstname, Lastname, DateOfBirth, Email, Phone FROM student";
+        $sql = "SELECT UsersID, Username, Email FROM users";
         $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "<br> ID: " . $row["StudentID"]. " - Username: " . $row["Firstname"]. "- Lastname". $row["Lastname"]. "- Date of Birth". $row["DateOfBirth"]." - Email: " . $row["Email"]. "- Phone". $row["Phone"]. "<br>";
-            }
-        } else {
-            echo "0 results";
-        }
 
     //Add User
     $id = rand(100000,999999);
-    $firstname = $_GET['firstname'];
-    $lastname = $_GET['lastname'];
-    $birthdate = $_GET['birthdate'];
+    $name = $_GET['name'];
     $email = $_GET['email'];
-    $phone = $_GET['phone'];
+    $password = $_GET['password'];
 
-    $sql = "INSERT INTO student (StudentID, Firstname, Lastname, DateOfBirth, Email, Phone) VALUES ('$id', '$firstname', $lastname, $birthdate, '$email', '$phone')";
+    $sql = "INSERT INTO users (UsersID, Username, Email, Password) VALUES ('$id', '$name', '$email', '$password')";
     if ($conn->query($sql) === TRUE) {
         echo "Record created successfully";
     } else {
@@ -40,10 +30,11 @@
     }
     
     // Update data
+    $retval = mysqli_select_db( $conn, 'Gabayno' );
     $newUsername = $_GET['new_name'];
     $idToUpdate = $_GET['enter_id'];
 
-    $sql = "UPDATE users SET username='$newUsername' WHERE id=$idToUpdate";
+    $sql = "UPDATE users SET Username='$newUsername' WHERE UsersID=$idToUpdate";
 
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
@@ -52,9 +43,10 @@
     }
 
     // Delete data
+    $retval = mysqli_select_db( $conn, 'Gabayno' );
     $idToDelete = $_GET['delete_id'];
 
-    $sql = "DELETE FROM users WHERE id=$idToDelete";
+    $sql = "DELETE FROM users WHERE UsersID=$idToDelete";
 
     if ($conn->query($sql) === TRUE) {
         echo "Record deleted successfully";

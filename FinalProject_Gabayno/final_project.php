@@ -28,7 +28,7 @@
           Username: <input type="text" name="name"  id="name" class="input-field" placeholder="Username" required> <br>
           Email: <input type="email" name="email" id="email" class="input-field" placeholder="Email" required> <br>
           Password: <input type="password" name="password" id="password" class="input-field" placeholder="Password" required> <br>
-          <button type="submit" class="signup-submit-btn"> <a href="dashboard.html">Signup</a></button>
+          <button type="submit" class="signup-submit-btn"> <a href="Dashboard/dashboard.html">Signup</a></button>
       <div class="login">
           <p>Already have an account? <a href="login.php">Login</a></p>
       </div>
@@ -37,7 +37,7 @@
           Username: <input type="text" name="name"  id="name" class="input-field" placeholder="Username" required> <br>
           Email: <input type="email" name="email" id="email" class="input-field" placeholder="Email" required> <br>
           Password: <input type="password" name="password" id="password" class="input-field" placeholder="Password" required> <br>
-          <button type="submit" class="login-submit-btn"> <a href="dashboard">Login</a></button>
+          <button type="submit" class="login-submit-btn"> <a href="Dashboard/dashboard.html">Login</a></button>
       <div class="login">
           <p>Don't have an account? <a href="login.php">Signup</a></p>
       </div>
