@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><head>
+    <link rel="stylesheet" href="Users.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700&amp;display=swap" rel="stylesheet">
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1086.0" data-gr-ext-installed="">
+    <p>ENROLLMENT INFORMATION</p>
+    <button type="submit"> <a href="Enrollment.php">View Enrollment Table</a></button>
+    <p>ADD NEW ENROLLMENT</p>
+    <form id="add_enrollment" class="input-group" action="enrollment.php" method="get">
+        Student ID: <input type="number" name="enter_id" id="enter_id" class="input-field" placeholder="Student ID" required> <br>
+        Course ID: <input type="number" name="enter_id" id="enter_id" class="input-field" placeholder="Course ID" required> <br>
+        Enrollment Date: <input type="date" name="enrollment_date"  id="enrollment_date"  class="input-field" placeholder="YYYY-MM-DD" required> <br>
+        Grade: <input type="text" name="grade"  id="grade" class="input-field" placeholder="Grade" required> <br>
+        <button type="submit">New Course</a></button> 
+    </form>
+
+    <p><br>UPDATE COURSE INFO</p>
+    <form id="update_enrollment" class="input-group" action="enrollment.php" method="get">
+        Grade: <input type="text" name="grade"  id="grade" class="input-field" placeholder="Grade" required> <br>
+        Enrollment ID: <input type="number" name="enter_id" id="enter_id" class="input-field" placeholder="Enrollment ID" required> <br>
+        <button type="submit">Update</a></button>
+    </form>
+
+    <p><br>DELETE COURSE INFO</p>
+    <form id="delete_enrollment" class="input-group" action="enrollment.php" method="get">
+        Enrollment ID: <input type="number" name="delete_id" id="delete_id" class="input-field" placeholder="Enrollment ID" required> <br>
+        <button type="submit">Delete</a></button>
+    </form>
+
+    
