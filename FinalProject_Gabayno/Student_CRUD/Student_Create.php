@@ -7,8 +7,9 @@
     
   </head>
   <body data-new-gr-c-s-check-loaded="14.1086.0" data-gr-ext-installed="">
+  <button type="submit"><a href= "Student.html">Back</a></button>
     <p>ADD NEW STUDENT</p>
-    <form id="add_student" class="input-group" action="Student.php" method="get">
+    <form id="add_student" class="input-group" action="Student_Create.php" method="get">
         Firstname: <input type="text" name="firstname"  id="firstname" class="input-field" placeholder="Firstname" required> <br>
         Lastname: <input type="text" name="lastname"  id="lastname" class="input-field" placeholder="Lastname" required> <br>
         Date of Birth: <input type="text" name="birthdate"  id="birthdate" class="input-field" placeholder="YYYY-MM-DD" required> <br>
@@ -41,7 +42,7 @@
     $email = $_GET['email'];
     $phone = $_GET['phone'];
 
-    $sql = "INSERT INTO Student (StudentID, Firstname, Lastname, DateOfBirth, Email, Phone) VALUES ('$id', '$firstname', $lastname, $birthdate, '$email', '$phone')";
+    $sql = "INSERT INTO Student (StudentID, Firstname, Lastname, DateOfBirth, Email, Phone) VALUES ('$id', '$firstname', '$lastname', '$birthdate', '$email', '$phone')";
     if ($conn->query($sql) === TRUE) {
         echo "Record created successfully";
     } else {

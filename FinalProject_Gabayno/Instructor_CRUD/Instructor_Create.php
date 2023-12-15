@@ -7,13 +7,14 @@
     
   </head>
   <body data-new-gr-c-s-check-loaded="14.1086.0" data-gr-ext-installed="">
-  <button type="submit"><a href= "Users.html">Back</a></button>
-    <p>ADD NEW USER</p>
-    <form id="add_user" class="input-group" action="Users_Create.php" method="get">
-        Username: <input type="text" name="name"  id="name" class="input-field" placeholder="Username" required> <br>
+  <button type="submit"><a href= "Instructor.html">Back</a></button>
+    <p>ADD NEW INSTRUCTOR</p>
+    <form id="add_instructor" class="input-group" action="Instructor_Create.php" method="get">
+        Firstname: <input type="text" name="firstname"  id="firstname" class="input-field" placeholder="Firstname" required> <br>
+        Lastname: <input type="text" name="lastname"  id="lastname" class="input-field" placeholder="Lastname" required> <br>
         Email: <input type="email" name="email" id="email" class="input-field" placeholder="Email" required> <br>
-        Password: <input type="password" name="password" id="password" class="input-field" placeholder="Password" required> <br>
-        <button type="submit">New Account</button>
+        Phone: <input type="number" name="phone" id="phone" class="input-field" placeholder="Phone Number" required> <br>
+        <button type="submit">New Instructor</a></button> 
     </form>
     <?php
         $servername = "localhost"; 
@@ -30,16 +31,17 @@
         }
         $retval = mysqli_select_db( $conn, 'Gabayno' );
         // Select data
-        $sql = "SELECT UsersID, Username, Email FROM users";
+        $sql = "SELECT InstructorID, Firstname, Lastname, Email, Phone FROM Instructor";
         $result = $conn->query($sql);
 
     //Add User
     $id = rand(100000,999999);
-    $name = $_GET['name'];
+    $firstname = $_GET['firstname'];
+    $lastname = $_GET['lastname'];
     $email = $_GET['email'];
-    $password = $_GET['password'];
+    $phone = $_GET['phone'];
 
-    $sql = "INSERT INTO users (UsersID, Username, Email, Password) VALUES ('$id', '$name', '$email', '$password')";
+    $sql = "INSERT INTO Instructor (InstructorID, Firstname, Lastname, Email, Phone) VALUES ('$id', '$firstname', '$lastname', '$email', '$phone')";
     if ($conn->query($sql) === TRUE) {
         echo "Record created successfully";
     } else {
@@ -52,5 +54,3 @@
 
 </body>
 </html> 
-</body>
-</html>

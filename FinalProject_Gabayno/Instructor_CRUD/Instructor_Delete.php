@@ -7,13 +7,11 @@
     
   </head>
   <body data-new-gr-c-s-check-loaded="14.1086.0" data-gr-ext-installed="">
-  <button type="submit"><a href= "Users.html">Back</a></button>
-    <p>ADD NEW USER</p>
-    <form id="add_user" class="input-group" action="Users_Create.php" method="get">
-        Username: <input type="text" name="name"  id="name" class="input-field" placeholder="Username" required> <br>
-        Email: <input type="email" name="email" id="email" class="input-field" placeholder="Email" required> <br>
-        Password: <input type="password" name="password" id="password" class="input-field" placeholder="Password" required> <br>
-        <button type="submit">New Account</button>
+  <button type="submit"><a href= "Instructor.html">Back</a></button>
+    <p><br>DELETE STUDENT INFO</p>
+    <form id="delete_instructor" class="input-group" action="Instructor_Delete.php" method="get">
+        User ID: <input type="number" name="delete_id" id="delete_id" class="input-field" placeholder="Instructor ID" required> <br>
+        <button type="submit">Delete</a></button>
     </form>
     <?php
         $servername = "localhost"; 
@@ -30,27 +28,25 @@
         }
         $retval = mysqli_select_db( $conn, 'Gabayno' );
         // Select data
-        $sql = "SELECT UsersID, Username, Email FROM users";
+        $sql = "SELECT InstructorID, Firstname, Lastname, Email, Phone FROM Instructor";
         $result = $conn->query($sql);
 
-    //Add User
-    $id = rand(100000,999999);
-    $name = $_GET['name'];
-    $email = $_GET['email'];
-    $password = $_GET['password'];
+    // Delete data
+    $idToDelete = $_GET['delete_id'];
 
-    $sql = "INSERT INTO users (UsersID, Username, Email, Password) VALUES ('$id', '$name', '$email', '$password')";
+    $sql = "DELETE FROM Instructor WHERE InstructorID=$idToDelete";
+
     if ($conn->query($sql) === TRUE) {
-        echo "Record created successfully";
+        echo "Record deleted successfully";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error deleting record: " . $conn->error;
     }
-    
+
     // Close connection
     $conn->close();
     ?>
 
 </body>
 </html> 
-</body>
-</html>
+
+    

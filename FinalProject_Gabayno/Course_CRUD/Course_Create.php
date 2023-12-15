@@ -7,13 +7,12 @@
     
   </head>
   <body data-new-gr-c-s-check-loaded="14.1086.0" data-gr-ext-installed="">
-  <button type="submit"><a href= "Users.html">Back</a></button>
-    <p>ADD NEW USER</p>
-    <form id="add_user" class="input-group" action="Users_Create.php" method="get">
-        Username: <input type="text" name="name"  id="name" class="input-field" placeholder="Username" required> <br>
-        Email: <input type="email" name="email" id="email" class="input-field" placeholder="Email" required> <br>
-        Password: <input type="password" name="password" id="password" class="input-field" placeholder="Password" required> <br>
-        <button type="submit">New Account</button>
+  <button type="submit"><a href= "Course.html">Back</a></button>
+    <p>ADD NEW COURSE</p>
+    <form id="add_course" class="input-group" action="Course_Create.php" method="get">
+        Course Name: <input type="text" name="course_name"  id="course_name" class="input-field" placeholder="Course name" required> <br>
+        Credits: <input type="text" name="credits"  id="credits" class="input-field" placeholder="Credits" required> <br>
+        <button type="submit">New Course</a></button> 
     </form>
     <?php
         $servername = "localhost"; 
@@ -30,27 +29,23 @@
         }
         $retval = mysqli_select_db( $conn, 'Gabayno' );
         // Select data
-        $sql = "SELECT UsersID, Username, Email FROM users";
+        $sql = "SELECT CourseID, CourseName, Credits FROM Course";
         $result = $conn->query($sql);
-
     //Add User
     $id = rand(100000,999999);
-    $name = $_GET['name'];
-    $email = $_GET['email'];
-    $password = $_GET['password'];
+    $coursename = $_GET['course_name'];
+    $credits = $_GET['credits'];
 
-    $sql = "INSERT INTO users (UsersID, Username, Email, Password) VALUES ('$id', '$name', '$email', '$password')";
+    $sql = "INSERT INTO Course (CourseID, CourseName, Credits) VALUES ('$id', '$coursename', $credits)";
     if ($conn->query($sql) === TRUE) {
         echo "Record created successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-    
     // Close connection
     $conn->close();
     ?>
 
 </body>
 </html> 
-</body>
-</html>
+    

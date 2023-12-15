@@ -7,8 +7,9 @@
     
   </head>
   <body data-new-gr-c-s-check-loaded="14.1086.0" data-gr-ext-installed="">
+  <button type="submit"><a href= "Student.html">Back</a></button>
     <p><br>DELETE STUDENT INFO</p>
-    <form id="delete_user" class="input-group" action="Users.php" method="get">
+    <form id="delete_user" class="input-group" action="Student_Delete.php" method="get">
         User ID: <input type="number" name="delete_id" id="delete_id" class="input-field" placeholder="Student ID" required> <br>
         <button type="submit">Delete</a></button>
     </form>
@@ -33,7 +34,7 @@
     // Delete data
     $idToDelete = $_GET['delete_id'];
 
-    $sql = "DELETE FROM users WHERE id=$idToDelete";
+    $sql = "DELETE FROM Student WHERE StudentID=$idToDelete";
 
     if ($conn->query($sql) === TRUE) {
         echo "Record deleted successfully";

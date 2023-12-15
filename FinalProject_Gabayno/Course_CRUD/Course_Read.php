@@ -1,3 +1,4 @@
+<button type="submit"><a href= "Course.html">Back</a></button>
 <?php
         $servername = "localhost"; 
         $username = "root"; 
@@ -13,12 +14,11 @@
         }
         $retval = mysqli_select_db( $conn, 'Gabayno' );
         // Select data
-        $sql = "SELECT StudentID, Firstname, Lastname, DateOfBirth, Email, Phone FROM student";
+        $sql = "SELECT CourseID, CourseName, Credits FROM Course";
         $result = $conn->query($sql);
-
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                echo "<br> ID: " . $row["StudentID"]. " - Username: " . $row["Firstname"]. "- Lastname". $row["Lastname"]. "- Date of Birth". $row["DateOfBirth"]." - Email: " . $row["Email"]. "- Phone". $row["Phone"]. "<br>";
+                echo "<br> Course ID: " . $row["CourseID"]. " - Coursename: " . $row["CourseName"]. " - Credits: " . $row["Credits"]. "<br>";
             }
         } else {
             echo "0 results";
@@ -26,6 +26,3 @@
     // Close connection
     $conn->close();
     ?>
-
-</body>
-</html> 

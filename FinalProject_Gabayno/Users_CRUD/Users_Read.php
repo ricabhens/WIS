@@ -1,3 +1,4 @@
+<button type="submit"><a href= "Users.html">Back</a></button>
 <?php
         $servername = "localhost"; 
         $username = "root"; 
