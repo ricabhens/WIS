@@ -49,6 +49,12 @@
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
     
+    $sql = "INSERT INTO Enrollment (StudentID) VALUES ('$id')";
+    if ($conn->query($sql) === TRUE) {
+        echo "Record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
     // Close connection
     $conn->close();
     ?>
