@@ -8,7 +8,7 @@
   </head>
   <body data-new-gr-c-s-check-loaded="14.1086.0" data-gr-ext-installed="">
   <button type="submit"><a href= "Instructor.html">Back</a></button>
-    <p><br>DELETE STUDENT INFO</p>
+    <p><br>DELETE INSTRUCTOR INFO</p>
     <form id="delete_instructor" class="input-group" action="Instructor_Delete.php" method="get">
         User ID: <input type="number" name="delete_id" id="delete_id" class="input-field" placeholder="Instructor ID" required> <br>
         <button type="submit">Delete</a></button>

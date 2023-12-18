@@ -34,7 +34,7 @@
         } 
 
    
-    $sql = "CREATE TABLE Student (
+    $sql = "CREATE TABLE IF NOT EXISTS Student (
         StudentID int Primary Key, 
         Firstname varchar(255),
         Lastname varchar(255),
@@ -48,7 +48,7 @@
           echo "Error creating table: " . $conn->error;
         }
 
-    $sql = "CREATE TABLE Course (
+    $sql = "CREATE TABLE IF NOT EXISTS Course (
         CourseID INT Primary Key,
         CourseName varchar(255),
         Credits varchar(255))";
@@ -59,7 +59,7 @@
           echo "Error creating table: " . $conn->error;
         }
 
-    $sql = "CREATE TABLE Instructor (
+    $sql = "CREATE TABLE IF NOT EXISTS Instructor (
         InstructorID int Primary Key,
         Firstname varchar(255),
         Lastname varchar(255),
@@ -72,7 +72,7 @@
           echo "Error creating table: " . $conn->error;
         }
 
-    $sql = "CREATE TABLE Enrollment (
+    $sql = "CREATE TABLE IF NOT EXISTS Enrollment (
         EnrollmentID int Primary Key,
         StudentID int,
         CourseID int,
@@ -82,7 +82,7 @@
         Grade int NOT NULL)";
             
         if ($conn->query($sql) === TRUE) {
-          echo "Table of Enrollment created successfully <br>";
+          echo "Enrollment Table created successfully <br>";
         } else {
           echo "Error creating table: " . $conn->error;
         }
